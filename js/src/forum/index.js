@@ -18,7 +18,7 @@ app.initializers.add('jamesinc/send-dm', () => {
 		const post = this.attrs.post;
 		const user = post.user()
 
-		if (!canStartPrivateDiscussion(user)) return;
+		if (!canStartPrivateDiscussion(user) || post.data.attributes.isHidden) return;
 
 		items.add(
 			"private-discussion",
